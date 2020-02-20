@@ -1,4 +1,11 @@
 spring:
+  #开启前端请求参数驼峰转下划线模式
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/review?serverTimezone=Asia/Shanghai
   thymeleaf:
     prefix: classpath:/templates/
     servlet:
@@ -7,3 +14,9 @@ spring:
     cache: false
 server:
   port: 9999
+  #开启mybaris下划线转驼峰
+mybatis:
+  configuration:
+    map-underscore-to-camel-case : true
+    #开启打印查询的sql语句模式
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

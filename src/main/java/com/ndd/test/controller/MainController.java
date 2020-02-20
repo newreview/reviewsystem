@@ -29,29 +29,10 @@ public class MainController {
     public String manager(){
         return "generalPage/Information/manager";
     }
-    /*编辑工作页面*/
-    @RequestMapping("/editor")
-    public String editor(){
-        return "user/editor";
-    }
 
-    /*稿件状态界面（用户查看）*/
-    @RequestMapping("/manuscript")
-    public String two(){
-        return "user/useruse";
-    }
 
-    /*主编工作页面*/
-    @RequestMapping("/maineditor")
-    public String maineditor(){
-        return "user/mainEditor";
-    }
 
-    /*审稿人界面*/
-    @RequestMapping("/reviewer")
-    public String reviewer(){
-        return "user/Reviewer";
-    }
+
 
     /*审稿人当日收到文件*/
     @RequestMapping("/dailypage")
@@ -87,23 +68,11 @@ public class MainController {
         return "user/Reader";
     }
 
-    /*主编秘书操作页面*/
-    @RequestMapping("/mainsecretary")
-    public String mainsecretary(){
-        return "user/mainSecretary";
-    }
 
-    /*期刊秘书操作页面*/
-    @RequestMapping("/joursecretary")
-    public String joursecretary(){
-        return "user/jourSecretary";
-    }
 
-    /*副主编操作页面*/
-    @RequestMapping("/subeditor")
-    public String subeditor(){
-        return "user/Subeditor";
-    }
+
+
+
 
     /*编辑个人信息页面*/
     @RequestMapping("/editorinfor")
@@ -158,4 +127,44 @@ public class MainController {
     public String main_editor(){
         return "distribution/main_editor";
     }
+
+
+
+
+    /*稿件状态界面（用户查看）*/
+    @RequestMapping("/manuscript")
+    public String two(){
+        return "user/useruse";
+    }
+    /*审稿人界面*/
+    @RequestMapping("/reviewer")
+    public String reviewer(){
+        return "user/Reviewer";
+    }
+    /*期刊秘书操作页面*/
+    @RequestMapping("/joursecretary")
+    public String joursecretary(){
+        return "user/jourSecretary";
+    }
+    /*主编工作页面*/
+    @RequestMapping("/maineditor")
+    public String maineditor(){
+        return "user/mainEditor";
+    }
+    /*副主编操作页面*/
+    @RequestMapping("/subeditor")
+    public String subeditor(){
+        return "user/Subeditor";
+    }
+    /*主编秘书操作页面*/
+    @RequestMapping("/mainsecretary")
+    public String mainsecretary(){
+        return "user/mainSecretary";
+    }
+    /*编辑工作页面*/
+    @RequestMapping("/editor")
+    public String editor(){
+        return "user/editor";
+    }
+
 }

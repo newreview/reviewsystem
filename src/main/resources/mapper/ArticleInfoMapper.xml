@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ndd.review.mapper.ArticleInfoMapper" >
+<!--    <resultMap id="BaseResultMap" type="com.ndd.review.mapper.ArticleInfoMapper" >-->
+<!--        <constructor >-->
+<!--            <arg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />-->
+<!--            <arg column="article_id" jdbcType="BIGINT" javaType="java.lang.Long" />-->
+<!--            <arg column="article_type" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="article_author" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="article_title" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="article_abstract" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="article_keywords" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="article_agent" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="article_phone" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="article_account" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--            <arg column="creat_time" jdbcType="VARCHAR" javaType="java.lang.String" />-->
+<!--        </constructor>-->
+<!--    </resultMap>-->
+   <!-- public int insertArticleInfo(ArticleInfo articleInfo);-->
+    <insert id="insertArticleInfo" parameterType="com.ndd.review.mapper.bean.ArticleInfo" >
+    insert into article_info (article_id, article_type,
+      article_author, article_title, article_abstract,
+      article_keywords, article_agent, article_phone,
+      article_user_account)
+    values  (#{articleId,jdbcType=INTEGER}, #{articleType,jdbcType=VARCHAR},
+      #{articleAuthor,jdbcType=VARCHAR}, #{articleTitle,jdbcType=VARCHAR}, #{articleAbstract,jdbcType=VARCHAR},
+      #{articleKeywords,jdbcType=VARCHAR}, #{articleAgent,jdbcType=VARCHAR}, #{articlePhone,jdbcType=VARCHAR},
+      #{articleUserAccount,jdbcType=VARCHAR})
+  </insert>
+
+</mapper>

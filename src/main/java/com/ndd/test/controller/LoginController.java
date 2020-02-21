@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
     @Autowired
@@ -18,11 +20,13 @@ public class LoginController {
     }
 
     @RequestMapping("/loginform")
-    public String loginform(@RequestParam("username") String nickname,@RequestParam("password") String password){
+    public String loginform(@RequestParam("username") String nickname, @RequestParam("password") String password, HttpSession session){
         System.out.println("用户登录名为"+nickname);
         LoginVetrify loginVetrify=loginMapper.selectPasswordByAccount(nickname);
         if(loginVetrify.getUserPassword()!=null){
             if(loginVetrify.getUserPassword().equals(password)){
+                /*放入session中*/
+                session.setAttribute("useraccount",nickname);
                 switch (loginVetrify.getUserType()){
                     case "1":return "user/useruse";//返回用户界面
                     case "2":return "user/Reviewer";//审稿人界面

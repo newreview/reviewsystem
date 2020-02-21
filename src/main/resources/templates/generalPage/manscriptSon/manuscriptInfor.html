@@ -1,21 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
-    <link href="assets/global/plugins/dropzone/css/dropzone.css" rel="stylesheet"/>
-    <script src="assets/global/plugins/respond.min.js"></script>
-    <script src="assets/global/plugins/excanvas.min.js"></script>
-
-    <script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
-    <script src="assets/admin/pages/scripts/form-wizard.js"></script>
-
-    <script type="text/javascript" src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
-    <script type="text/javascript" src="assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-
-    <script src="assets/admin/pages/scripts/form-dropzone.js"></script>
-    <script src="assets/global/plugins/dropzone/dropzone.js"></script>
 </head>
 <body>
 <!--注册-->
@@ -40,7 +26,7 @@
                 </div>
             </div>
             <div class="portlet-body form">
-                <form action="javascript:;" class="form-horizontal" id="submit_form" method="POST" novalidate="novalidate">
+                <form action="javascript;" class="form-horizontal" id="submit_form" method="POST" novalidate="novalidate">
                     <div class="form-wizard">
                         <div class="form-body">
                             <ul class="nav nav-pills nav-justified steps">
@@ -87,7 +73,7 @@
 													* </span>
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" name="fullname">
+                                            <input type="text" class="form-control" name="fullname" id="author">
                                             <span class="help-block">
 														请输入第一作者姓名 </span>
                                         </div>
@@ -97,34 +83,31 @@
 													* </span>
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" name="phone">
+                                            <input type="text" class="form-control" name="phone" id="phone">
                                             <span class="help-block">
 														请输入您的手机号码 </span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">其他</label>
-                                        <div class="col-md-4">
-                                            <textarea class="form-control" rows="3" name="remarks"></textarea>
-                                        </div>
-                                    </div>
-                                    <!--文本上传框-->
-                                    <div class="portlet light">
-                                        <div class="portlet-body">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>
-								<span class="label label-danger">
-								NOTE: </span>
-                                                        &nbsp; This plugins works only on Latest Chrome, Firefox, Safari, Opera &amp; Internet Explorer 10.
-                                                    </p>
-                                                    <form action="assets/global/plugins/dropzone/upload.php" class="dropzone dz-clickable" id="my-dropzone">
-                                                        <div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+<!--                                    &lt;!&ndash;文本上传框&ndash;&gt;-->
+<!--                                    <div class="portlet light">-->
+<!--                                        <div class="portlet-body">-->
+<!--                                            <div class="row">-->
+<!--                                                <div class="col-md-12">-->
+<!--                                                    <p>-->
+<!--								<span class="label label-danger">-->
+<!--								NOTE: </span>-->
+<!--                                                        &nbsp; This plugins works only on Latest Chrome, Firefox, Safari, Opera &amp; Internet Explorer 10.-->
+<!--                                                    </p>-->
+<!--                                                    <form action="assets/global/plugins/dropzone/upload.php" class="dropzone dz-clickable" id="my-dropzone">-->
+<!--                                                        <div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
                                 </div>
+
                                 <!--稿件详细信息-->
                                 <div class="tab-pane" id="tab3">
                                     <h3 class="block">Provide your billing and credit card details</h3>
@@ -134,7 +117,7 @@
 													* </span>
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" name="topic"/>
+                                            <input type="text" class="form-control" name="topic" id="topic"/>
                                             <span class="help-block">
 														</span>
                                         </div>
@@ -145,9 +128,20 @@
 													* </span>
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" name="keywords"/>
+                                            <input type="text" class="form-control" name="keywords" id="keywords"/>
                                             <span class="help-block">
 														</span>
+                                        </div>
+                                    </div>
+                                    <!--文章所属领域-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">文章领域</label>
+                                        <div class="col-md-4">
+                                            <select id="field_list" class="form-control" name="field">
+                                            <option value=""></option>
+                                            <option value="化学">化学</option>
+                                            <option value="数学">数学</option>
+                                        </select>
                                         </div>
                                     </div>
                                     <!--是否代理-->
@@ -158,10 +152,10 @@
                                         <div class="col-md-4">
                                             <div class="radio-list">
                                                 <label>
-                                                    <div class="radio"><span class=""><input type="radio" name="gender" value="M" data-title="Male"></span></div>
+                                                    <div class="radio"><span class=""><input type="radio" name="proxy" value="Y" data-title="是"></span></div>
                                                     是 </label>
                                                 <label>
-                                                    <div class="radio"><span class="checked"><input type="radio" name="gender" value="F" data-title="Female"></span></div>
+                                                    <div class="radio"><span class="checked"><input type="radio" name="proxy" value="N" data-title="否"></span></div>
                                                     否 </label>
                                             </div>
                                             <div id="form_gender_error">
@@ -172,7 +166,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">摘要</label>
                                         <div class="col-md-4">
-                                            <textarea class="form-control" rows="3" name="abtract"></textarea>
+                                            <textarea class="form-control" rows="3" name="abtract" id="abstract"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -210,14 +204,34 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="control-label col-md-3">文章领域:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="field">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">是否代理:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="proxy">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="control-label col-md-3">摘要:</label>
                                         <div class="col-md-4">
                                             <p class="form-control-static" data-display="abtract">
                                             </p>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <button class="btn green" style="float: right" v-on:click="articleSubmit()">
+                                            Submit <i class="m-icon-swapright m-icon-white"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                         <div class="form-actions">
                             <div class="row">
@@ -226,9 +240,6 @@
                                         <i class="m-icon-swapleft"></i> Back </a>
                                     <a href="javascript:;" class="btn blue button-next">
                                         Continue <i class="m-icon-swapright m-icon-white"></i>
-                                    </a>
-                                    <a href="javascript:;" class="btn green button-submit" style="display: none;">
-                                        Submit <i class="m-icon-swapright m-icon-white"></i>
                                     </a>
                                 </div>
                             </div>
@@ -239,10 +250,6 @@
         </div>
     </div>
 </div>
-<script>
-    jQuery(document).ready(function() {
-        FormWizard.init();
-    });
-</script>
+
 </body>
 </html>

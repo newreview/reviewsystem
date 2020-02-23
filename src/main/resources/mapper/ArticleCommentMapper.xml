@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ndd.mybatisgeneration.dao.ArticleCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.ndd.mybatisgeneration.model.ArticleComment" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="article_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mainsecre_ comment" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="submain_ comment" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="editor_ comment" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer1_comment" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer2_ comment" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer3_ comment" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="comment_status" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ndd.mybatisgeneration.model.ArticleCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from article_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ndd.mybatisgeneration.model.ArticleCommentExample" >
+    delete from article_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ndd.mybatisgeneration.model.ArticleComment" >
+    insert into article_comment (id, article_id, "mainsecre_ comment", 
+      "submain_ comment", "editor_ comment", reviewer1_comment, 
+      "reviewer2_ comment", "reviewer3_ comment", comment_status
+      )
+    values (#{id,jdbcType=INTEGER}, #{articleId,jdbcType=VARCHAR}, #{mainsecreComment,jdbcType=VARCHAR}, 
+      #{submainComment,jdbcType=VARCHAR}, #{editorComment,jdbcType=VARCHAR}, #{reviewer1Comment,jdbcType=VARCHAR}, 
+      #{reviewer2Comment,jdbcType=VARCHAR}, #{reviewer3Comment,jdbcType=VARCHAR}, #{commentStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ndd.mybatisgeneration.model.ArticleComment" >
+    insert into article_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="mainsecreComment != null" >
+        "mainsecre_ comment",
+      </if>
+      <if test="submainComment != null" >
+        "submain_ comment",
+      </if>
+      <if test="editorComment != null" >
+        "editor_ comment",
+      </if>
+      <if test="reviewer1Comment != null" >
+        reviewer1_comment,
+      </if>
+      <if test="reviewer2Comment != null" >
+        "reviewer2_ comment",
+      </if>
+      <if test="reviewer3Comment != null" >
+        "reviewer3_ comment",
+      </if>
+      <if test="commentStatus != null" >
+        comment_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainsecreComment != null" >
+        #{mainsecreComment,jdbcType=VARCHAR},
+      </if>
+      <if test="submainComment != null" >
+        #{submainComment,jdbcType=VARCHAR},
+      </if>
+      <if test="editorComment != null" >
+        #{editorComment,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer1Comment != null" >
+        #{reviewer1Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer2Comment != null" >
+        #{reviewer2Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer3Comment != null" >
+        #{reviewer3Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="commentStatus != null" >
+        #{commentStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ndd.mybatisgeneration.model.ArticleCommentExample" resultType="java.lang.Integer" >
+    select count(*) from article_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update article_comment
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleId != null" >
+        article_id = #{record.articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainsecreComment != null" >
+        "mainsecre_ comment" = #{record.mainsecreComment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.submainComment != null" >
+        "submain_ comment" = #{record.submainComment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.editorComment != null" >
+        "editor_ comment" = #{record.editorComment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewer1Comment != null" >
+        reviewer1_comment = #{record.reviewer1Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewer2Comment != null" >
+        "reviewer2_ comment" = #{record.reviewer2Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewer3Comment != null" >
+        "reviewer3_ comment" = #{record.reviewer3Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commentStatus != null" >
+        comment_status = #{record.commentStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update article_comment
+    set id = #{record.id,jdbcType=INTEGER},
+      article_id = #{record.articleId,jdbcType=VARCHAR},
+      "mainsecre_ comment" = #{record.mainsecreComment,jdbcType=VARCHAR},
+      "submain_ comment" = #{record.submainComment,jdbcType=VARCHAR},
+      "editor_ comment" = #{record.editorComment,jdbcType=VARCHAR},
+      reviewer1_comment = #{record.reviewer1Comment,jdbcType=VARCHAR},
+      "reviewer2_ comment" = #{record.reviewer2Comment,jdbcType=VARCHAR},
+      "reviewer3_ comment" = #{record.reviewer3Comment,jdbcType=VARCHAR},
+      comment_status = #{record.commentStatus,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ndd.mybatisgeneration.model.ArticleComment" >
+    update article_comment
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="mainsecreComment != null" >
+        "mainsecre_ comment" = #{mainsecreComment,jdbcType=VARCHAR},
+      </if>
+      <if test="submainComment != null" >
+        "submain_ comment" = #{submainComment,jdbcType=VARCHAR},
+      </if>
+      <if test="editorComment != null" >
+        "editor_ comment" = #{editorComment,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer1Comment != null" >
+        reviewer1_comment = #{reviewer1Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer2Comment != null" >
+        "reviewer2_ comment" = #{reviewer2Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer3Comment != null" >
+        "reviewer3_ comment" = #{reviewer3Comment,jdbcType=VARCHAR},
+      </if>
+      <if test="commentStatus != null" >
+        comment_status = #{commentStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ndd.mybatisgeneration.model.ArticleComment" >
+    update article_comment
+    set article_id = #{articleId,jdbcType=VARCHAR},
+      "mainsecre_ comment" = #{mainsecreComment,jdbcType=VARCHAR},
+      "submain_ comment" = #{submainComment,jdbcType=VARCHAR},
+      "editor_ comment" = #{editorComment,jdbcType=VARCHAR},
+      reviewer1_comment = #{reviewer1Comment,jdbcType=VARCHAR},
+      "reviewer2_ comment" = #{reviewer2Comment,jdbcType=VARCHAR},
+      "reviewer3_ comment" = #{reviewer3Comment,jdbcType=VARCHAR},
+      comment_status = #{commentStatus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

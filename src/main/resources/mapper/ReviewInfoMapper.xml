@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ndd.mybatisgeneration.dao.ReviewInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.ndd.mybatisgeneration.model.ReviewInfo" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="reviewer_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="review_account" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="review_password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer_rate" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer_rank" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer_article" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ndd.mybatisgeneration.model.ReviewInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from reviewer_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from reviewer_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from reviewer_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ndd.mybatisgeneration.model.ReviewInfoExample" >
+    delete from reviewer_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ndd.mybatisgeneration.model.ReviewInfo" >
+    insert into reviewer_info (id, reviewer_id, review_account, 
+      review_password, reviewer_type, reviewer_rate, 
+      reviewer_rank, reviewer_article)
+    values (#{id,jdbcType=INTEGER}, #{reviewerId,jdbcType=VARCHAR}, #{reviewAccount,jdbcType=VARCHAR}, 
+      #{reviewPassword,jdbcType=VARCHAR}, #{reviewerType,jdbcType=VARCHAR}, #{reviewerRate,jdbcType=VARCHAR}, 
+      #{reviewerRank,jdbcType=VARCHAR}, #{reviewerArticle,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ndd.mybatisgeneration.model.ReviewInfo" >
+    insert into reviewer_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reviewerId != null" >
+        reviewer_id,
+      </if>
+      <if test="reviewAccount != null" >
+        review_account,
+      </if>
+      <if test="reviewPassword != null" >
+        review_password,
+      </if>
+      <if test="reviewerType != null" >
+        reviewer_type,
+      </if>
+      <if test="reviewerRate != null" >
+        reviewer_rate,
+      </if>
+      <if test="reviewerRank != null" >
+        reviewer_rank,
+      </if>
+      <if test="reviewerArticle != null" >
+        reviewer_article,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="reviewerId != null" >
+        #{reviewerId,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewAccount != null" >
+        #{reviewAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewPassword != null" >
+        #{reviewPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerType != null" >
+        #{reviewerType,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerRate != null" >
+        #{reviewerRate,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerRank != null" >
+        #{reviewerRank,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerArticle != null" >
+        #{reviewerArticle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ndd.mybatisgeneration.model.ReviewInfoExample" resultType="java.lang.Integer" >
+    select count(*) from reviewer_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update reviewer_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.reviewerId != null" >
+        reviewer_id = #{record.reviewerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewAccount != null" >
+        review_account = #{record.reviewAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewPassword != null" >
+        review_password = #{record.reviewPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewerType != null" >
+        reviewer_type = #{record.reviewerType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewerRate != null" >
+        reviewer_rate = #{record.reviewerRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewerRank != null" >
+        reviewer_rank = #{record.reviewerRank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewerArticle != null" >
+        reviewer_article = #{record.reviewerArticle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update reviewer_info
+    set id = #{record.id,jdbcType=INTEGER},
+      reviewer_id = #{record.reviewerId,jdbcType=VARCHAR},
+      review_account = #{record.reviewAccount,jdbcType=VARCHAR},
+      review_password = #{record.reviewPassword,jdbcType=VARCHAR},
+      reviewer_type = #{record.reviewerType,jdbcType=VARCHAR},
+      reviewer_rate = #{record.reviewerRate,jdbcType=VARCHAR},
+      reviewer_rank = #{record.reviewerRank,jdbcType=VARCHAR},
+      reviewer_article = #{record.reviewerArticle,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ndd.mybatisgeneration.model.ReviewInfo" >
+    update reviewer_info
+    <set >
+      <if test="reviewerId != null" >
+        reviewer_id = #{reviewerId,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewAccount != null" >
+        review_account = #{reviewAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewPassword != null" >
+        review_password = #{reviewPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerType != null" >
+        reviewer_type = #{reviewerType,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerRate != null" >
+        reviewer_rate = #{reviewerRate,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerRank != null" >
+        reviewer_rank = #{reviewerRank,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewerArticle != null" >
+        reviewer_article = #{reviewerArticle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ndd.mybatisgeneration.model.ReviewInfo" >
+    update reviewer_info
+    set reviewer_id = #{reviewerId,jdbcType=VARCHAR},
+      review_account = #{reviewAccount,jdbcType=VARCHAR},
+      review_password = #{reviewPassword,jdbcType=VARCHAR},
+      reviewer_type = #{reviewerType,jdbcType=VARCHAR},
+      reviewer_rate = #{reviewerRate,jdbcType=VARCHAR},
+      reviewer_rank = #{reviewerRank,jdbcType=VARCHAR},
+      reviewer_article = #{reviewerArticle,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

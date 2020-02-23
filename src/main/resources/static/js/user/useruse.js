@@ -38,7 +38,14 @@ $(function () {
                     data:JSON.stringify({"article_author":article_author,"article_phone":article_phone,"article_topic":article_topic,"article_keywords":article_keywords,
                             "article_field":article_field,"article_proxy":article_proxy,"article_abstract":article_abstract}),
                     success:function (result) {
-                        console.log(result);
+                        if(result.result){
+                            Swal.fire({
+                                title:"成功！",
+                                text:"提交成功",
+                                type: "success",
+                                cancelButtonText: '离开',
+                            });
+                        }
                     }
                 })
             }

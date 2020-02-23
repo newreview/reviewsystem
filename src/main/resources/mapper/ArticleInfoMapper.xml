@@ -28,4 +28,10 @@
       #{articleUserAccount,jdbcType=VARCHAR})
   </insert>
 
+    <!--public List<ArticleInfo> seleteArticleInfo();-->
+    <select id="seleteArticleInfo" resultType="com.ndd.review.mapper.bean.ArticleInfo" >
+        select * from article_info
+    </select>
+
+
 </mapper>

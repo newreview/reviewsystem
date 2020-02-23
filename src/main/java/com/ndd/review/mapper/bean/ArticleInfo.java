@@ -32,5 +32,11 @@ public class ArticleInfo {
     /*文章提交作者的账号*/
     private String articleUserAccount;
 
+    /*稿件修改次数*/
+    private int articleNumber;
+
+    /*稿件状态*/
+    private String articleStatus;
+
     private String creatTime;
 }

@@ -132,7 +132,7 @@ public class MainController {
 
 
     /*稿件状态界面（用户查看）*/
-    @RequestMapping("/manuscript")
+    @RequestMapping("user/upload/article")
     public String two(){
         return "user/useruse";
     }
@@ -142,7 +142,7 @@ public class MainController {
         return "user/Reviewer";
     }
     /*期刊秘书操作页面*/
-    @RequestMapping("/joursecretary")
+    @RequestMapping("joursecretary/initial")
     public String joursecretary(){
         return "user/jourSecretary";
     }

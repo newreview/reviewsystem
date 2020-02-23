@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ndd.mybatisgeneration.dao.articleDistributeMapper" >
+  <resultMap id="BaseResultMap" type="com.ndd.mybatisgeneration.model.articleDistribute" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="article_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="maineditor_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mainsecre_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="submain_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="editor_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer1_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer2_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reviewer3_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ndd.mybatisgeneration.model.articleDistributeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from article_distribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_distribute
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_distribute
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ndd.mybatisgeneration.model.articleDistributeExample" >
+    delete from article_distribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ndd.mybatisgeneration.model.articleDistribute" >
+    insert into article_distribute (id, article_id, maineditor_num, 
+      mainsecre_num, submain_num, editor_num, 
+      reviewer1_id, reviewer2_id, reviewer3_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{articleId,jdbcType=VARCHAR}, #{maineditorNum,jdbcType=VARCHAR}, 
+      #{mainsecreNum,jdbcType=VARCHAR}, #{submainNum,jdbcType=VARCHAR}, #{editorNum,jdbcType=VARCHAR}, 
+      #{reviewer1Id,jdbcType=VARCHAR}, #{reviewer2Id,jdbcType=VARCHAR}, #{reviewer3Id,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ndd.mybatisgeneration.model.articleDistribute" >
+    insert into article_distribute
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="maineditorNum != null" >
+        maineditor_num,
+      </if>
+      <if test="mainsecreNum != null" >
+        mainsecre_num,
+      </if>
+      <if test="submainNum != null" >
+        submain_num,
+      </if>
+      <if test="editorNum != null" >
+        editor_num,
+      </if>
+      <if test="reviewer1Id != null" >
+        reviewer1_id,
+      </if>
+      <if test="reviewer2Id != null" >
+        reviewer2_id,
+      </if>
+      <if test="reviewer3Id != null" >
+        reviewer3_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="maineditorNum != null" >
+        #{maineditorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="mainsecreNum != null" >
+        #{mainsecreNum,jdbcType=VARCHAR},
+      </if>
+      <if test="submainNum != null" >
+        #{submainNum,jdbcType=VARCHAR},
+      </if>
+      <if test="editorNum != null" >
+        #{editorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer1Id != null" >
+        #{reviewer1Id,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer2Id != null" >
+        #{reviewer2Id,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer3Id != null" >
+        #{reviewer3Id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ndd.mybatisgeneration.model.articleDistributeExample" resultType="java.lang.Integer" >
+    select count(*) from article_distribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update article_distribute
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleId != null" >
+        article_id = #{record.articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maineditorNum != null" >
+        maineditor_num = #{record.maineditorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainsecreNum != null" >
+        mainsecre_num = #{record.mainsecreNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.submainNum != null" >
+        submain_num = #{record.submainNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.editorNum != null" >
+        editor_num = #{record.editorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewer1Id != null" >
+        reviewer1_id = #{record.reviewer1Id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewer2Id != null" >
+        reviewer2_id = #{record.reviewer2Id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewer3Id != null" >
+        reviewer3_id = #{record.reviewer3Id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update article_distribute
+    set id = #{record.id,jdbcType=INTEGER},
+      article_id = #{record.articleId,jdbcType=VARCHAR},
+      maineditor_num = #{record.maineditorNum,jdbcType=VARCHAR},
+      mainsecre_num = #{record.mainsecreNum,jdbcType=VARCHAR},
+      submain_num = #{record.submainNum,jdbcType=VARCHAR},
+      editor_num = #{record.editorNum,jdbcType=VARCHAR},
+      reviewer1_id = #{record.reviewer1Id,jdbcType=VARCHAR},
+      reviewer2_id = #{record.reviewer2Id,jdbcType=VARCHAR},
+      reviewer3_id = #{record.reviewer3Id,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ndd.mybatisgeneration.model.articleDistribute" >
+    update article_distribute
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="maineditorNum != null" >
+        maineditor_num = #{maineditorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="mainsecreNum != null" >
+        mainsecre_num = #{mainsecreNum,jdbcType=VARCHAR},
+      </if>
+      <if test="submainNum != null" >
+        submain_num = #{submainNum,jdbcType=VARCHAR},
+      </if>
+      <if test="editorNum != null" >
+        editor_num = #{editorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer1Id != null" >
+        reviewer1_id = #{reviewer1Id,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer2Id != null" >
+        reviewer2_id = #{reviewer2Id,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewer3Id != null" >
+        reviewer3_id = #{reviewer3Id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ndd.mybatisgeneration.model.articleDistribute" >
+    update article_distribute
+    set article_id = #{articleId,jdbcType=VARCHAR},
+      maineditor_num = #{maineditorNum,jdbcType=VARCHAR},
+      mainsecre_num = #{mainsecreNum,jdbcType=VARCHAR},
+      submain_num = #{submainNum,jdbcType=VARCHAR},
+      editor_num = #{editorNum,jdbcType=VARCHAR},
+      reviewer1_id = #{reviewer1Id,jdbcType=VARCHAR},
+      reviewer2_id = #{reviewer2Id,jdbcType=VARCHAR},
+      reviewer3_id = #{reviewer3Id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

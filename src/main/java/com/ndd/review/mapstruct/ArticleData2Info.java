@@ -18,12 +18,12 @@ public interface ArticleData2Info {
 
     ArticleData2Info INSTANCE= Mappers.getMapper(ArticleData2Info.class);
 
-    @Mappings({
-            /*文章代理*/
-            @Mapping(source = "articleData.articleProxy",target = "articleAgent"),
 
-            /*文章类型*/
-            @Mapping(source = "articleData.articleField",target = "articleType")
-    })
-   ArticleInfo articleData2Info(ArticleData articleData);
+     /*文章代理*/
+      @Mapping(source = "articleProxy",target = "articleAgent")
+
+      /*文章类型*/
+      @Mapping(source = "articleField",target = "articleType")
+
+      ArticleInfo articleData2Info(ArticleData articleData);
 }

@@ -28,9 +28,9 @@ public class LoginController {
                 /*放入session中*/
                 session.setAttribute("userAccount",nickname);
                 switch (loginVetrify.getUserType()){
-                    case "1":return "user/useruse";//返回用户界面
+                    case "1":return "redirect:user/upload/article";//返回用户界面
                     case "2":return "user/Reviewer";//审稿人界面
-                    case "3":return "user/jourSecretary";//期刊秘书界面
+                    case "3":return "redirect:joursecretary/initial";//期刊秘书初审页面
                     case "4":return "user/mainEditor";//主编界面
                     case "5":return "user/Subeditor";//副主编界面
                     case "6":return "user/mainSecretary";//主编秘书界面

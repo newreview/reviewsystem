@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ndd.review.mapper.ArticleStatusMapper" >
+
+ <!--public int insertArticleHistory(ArticleHistory articleStatus);-->
+  <insert id="insertArticleHistory" parameterType="com.ndd.review.mapper.bean.ArticleStatus" >
+    insert into article_status (article_id, article_title,
+      article_status)
+    values (#{articleId,jdbcType=VARCHAR}, #{articleTitle,jdbcType=VARCHAR},
+      #{articleStatus,jdbcType=VARCHAR})
+  </insert>
+
+</mapper>

@@ -9,11 +9,14 @@ import lombok.Data;
 public class LoginInfo {
     private Integer id;
 
-    private Long userId;
+    private String userId;
 
     private String userAccount;
 
     private String userPassword;
+
+    /*用户送审的所有稿件ID*/
+    private String userArticleId;
 
     private Integer userType;
 
